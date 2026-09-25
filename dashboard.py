@@ -27,24 +27,24 @@ hourly['hour_label']=hourly['hour_start'].dt.strftime('%b %d %H:%M')
 hour_chart=px.bar(hourly,x='hour_label',y='flows',color='attack_label',
  title='Traffic by observed hour and label')
 hour_chart.update_xaxes(type='category',tickangle=-45)
-st.plotly_chart(hour_chart,use_container_width=True)
+st.plotly_chart(hour_chart,width='stretch')
 left,right=st.columns(2)
 mix=con.execute(f'''SELECT attack_label,COUNT(*) flows FROM flow_enriched WHERE {where}
  GROUP BY 1 ORDER BY flows DESC''').df()
-left.plotly_chart(px.bar(mix,x='attack_label',y='flows',title='Label distribution'),use_container_width=True)
+left.plotly_chart(px.bar(mix,x='attack_label',y='flows',title='Label distribution'),width='stretch')
 ports=con.execute(f'''SELECT dst_port,COUNT(*) flows,SUM(is_attack::INT) attacks
  FROM flow_enriched WHERE {where} GROUP BY 1 ORDER BY attacks DESC LIMIT 15''').df()
 ports['dst_port']=ports['dst_port'].astype(str)
 port_chart=px.bar(ports,x='attacks',y='dst_port',orientation='h',hover_data=['flows'],
  title='Most attacked destination ports')
 port_chart.update_yaxes(type='category',categoryorder='total ascending')
-right.plotly_chart(port_chart,use_container_width=True)
+right.plotly_chart(port_chart,width='stretch')
 st.subheader('Attack-class profiles')
 profile=con.execute(f'''SELECT attack_label,COUNT(*) flows,
  ROUND(QUANTILE_CONT(duration_s,0.5),3) median_duration_s,
  ROUND(QUANTILE_CONT(total_bytes,0.5),1) median_bytes,
  ROUND(100.0*AVG((syn_flags>0)::INT),2) syn_share_pct
  FROM flow_enriched WHERE {where} GROUP BY 1 ORDER BY flows DESC''').df()
-st.dataframe(profile,use_container_width=True,hide_index=True)
+st.dataframe(profile,width='stretch',hide_index=True)
 st.caption('This selected-day corpus is not a random sample of all CSE-CIC-IDS2018 traffic. Labels come from the source dataset; traffic statistics alone do not prove malicious intent.')
 con.close()
