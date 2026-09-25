@@ -1,0 +1,9 @@
+# What is the benign and attack-class distribution?
+
+| attack_label | flows | share_pct |
+| --- | --- | --- |
+| Benign | 1668042 | 68.69 |
+| Bot | 286191 | 11.79 |
+| FTP-BruteForce | 193360 | 7.96 |
+| SSH-Bruteforce | 187589 | 7.73 |
+| Infilteration | 93063 | 3.83 |

@@ -1,0 +1,9 @@
+# Which labels have forward-heavy packet patterns?
+
+| attack_label | flows | mean_fwd_pkts | mean_bwd_pkts | forward_heavy_pct |
+| --- | --- | --- | --- | --- |
+| Benign | 1668042 | 6.55 | 8.08 | 0.84 |
+| Bot | 286191 | 2.57 | 2.02 | 0.11 |
+| FTP-BruteForce | 193360 | 1.0 | 1.0 | 0.0 |
+| SSH-Bruteforce | 187589 | 11.72 | 11.15 | 0.0 |
+| Infilteration | 93063 | 4.96 | 4.49 | 1.58 |

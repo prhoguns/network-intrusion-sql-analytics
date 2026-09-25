@@ -1,0 +1,9 @@
+# How much data does a typical flow carry by label?
+
+| attack_label | flows | median_bytes | p95_bytes |
+| --- | --- | --- | --- |
+| Benign | 1668042 | 169.0 | 6170.0 |
+| Bot | 286191 | 0.0 | 455.0 |
+| FTP-BruteForce | 193360 | 0.0 | 0.0 |
+| SSH-Bruteforce | 187589 | 4577.0 | 4625.0 |
+| Infilteration | 93063 | 88.0 | 5034.9 |

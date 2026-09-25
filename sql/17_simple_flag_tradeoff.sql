@@ -1,0 +1,2 @@
+-- How does a simple short-SYN rule perform against dataset labels?
+WITH x AS (SELECT is_attack,(syn_flags>0 AND duration_s<1) hit FROM flow_enriched) SELECT COUNT(*) FILTER (WHERE hit) alerts,SUM(is_attack::INT) FILTER (WHERE hit) true_positives,ROUND(100.0*SUM(is_attack::INT) FILTER (WHERE hit)/NULLIF(COUNT(*) FILTER (WHERE hit),0),2) precision_pct,ROUND(100.0*SUM(is_attack::INT) FILTER (WHERE hit)/SUM(is_attack::INT),2) recall_pct FROM x;

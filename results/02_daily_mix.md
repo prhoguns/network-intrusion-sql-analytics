@@ -1,0 +1,11 @@
+# How does traffic composition change by source day?
+
+| source_day | attack_label | flows |
+| --- | --- | --- |
+| Friday-02-03-2018 | Benign | 762384 |
+| Friday-02-03-2018 | Bot | 286191 |
+| Thursday-01-03-2018 | Benign | 238037 |
+| Thursday-01-03-2018 | Infilteration | 93063 |
+| Wednesday-14-02-2018 | Benign | 667621 |
+| Wednesday-14-02-2018 | FTP-BruteForce | 193360 |
+| Wednesday-14-02-2018 | SSH-Bruteforce | 187589 |

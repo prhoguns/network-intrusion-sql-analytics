@@ -1,0 +1,6 @@
+attack_label,flows,short_small_pct
+Benign,1668042,56.17
+Bot,286191,98.4
+FTP-BruteForce,193360,100.0
+SSH-Bruteforce,187589,49.99
+Infilteration,93063,70.74

@@ -1,0 +1,9 @@
+# How does packet rate vary by label?
+
+| attack_label | flows | median_pkts_s | p95_pkts_s |
+| --- | --- | --- | --- |
+| Benign | 1657915 | 62.91 | 66666.67 |
+| Bot | 286191 | 1007.19 | 4338.39 |
+| FTP-BruteForce | 193354 | 1000000.0 | 2000000.0 |
+| SSH-Bruteforce | 187589 | 351.22 | 400000.0 |
+| Infilteration | 92403 | 2229.65 | 1000000.0 |
