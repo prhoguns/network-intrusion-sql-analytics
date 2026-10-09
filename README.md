@@ -1,8 +1,14 @@
 # Network Intrusion SQL Analytics
 
+[![CI](https://github.com/prhoguns/network-intrusion-sql-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/prhoguns/network-intrusion-sql-analytics/actions/workflows/ci.yml)
+
 Eighteen SQL questions and an interactive dashboard over labeled network **flow features** from [CSE-CIC-IDS2018](https://www.unb.ca/cic/datasets/ids-2018.html). This analyzes traffic mix, attack concentration, ports, protocols, flow shapes, and a transparent detection rule. It complements packet-level hunts by looking at fleet-wide labeled flow behavior.
 
+**Headline:** a naive short-SYN rule fires 66,060 times but reaches only 6.97% precision and 0.61% recall against 760,203 labeled attack flows. In this corpus, destination port and flow context separate attacks far better than a single flag.
+
 **Start with:** [Findings](FINDINGS.md) · [SQL questions](sql/) · [Results](results/) · [Dashboard screenshot](screenshots/dashboard.png)
+
+CI runs all eighteen queries on every push against a small synthetic fixture with the real schema ([`scripts/make_fixture.py`](scripts/make_fixture.py)); the results in this repository come from the real data, downloaded locally.
 
 ![Attacks by hour](charts/attacks_by_hour.png)
 

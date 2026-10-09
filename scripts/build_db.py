@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import duckdb
 
@@ -39,6 +40,7 @@ con.execute('''CREATE OR REPLACE VIEW flow_enriched AS SELECT *,
  DATE_TRUNC('hour',event_time) hour_start
  FROM flows''')
 count,attack = con.execute('SELECT COUNT(*),SUM(is_attack::INT) FROM flow_enriched').fetchone()
-assert count > 1000000 and 0 < attack < count, (count,attack)
+min_rows = int(os.getenv('MIN_ROWS', '1000000'))  # CI lowers this for the synthetic fixture
+assert count > min_rows and 0 < attack < count, (count,attack)
 print(f'{count:,} flows; {attack:,} labeled attacks; database: {db}')
 con.close()
